@@ -1,0 +1,10 @@
+This is repository for studiyng Python in order make programming laboratory works.
+
+Kipytkov Evgenii, B02-924 group, student of Moscow Institute of Physics and Technology, Russia
+
+Laboratory work 3, Picture
+
+"Picture" is task to draw "angry smile" and "cat with threads in room" using graph library based on tkinter.
+
+lab3/			Source files for task3
+lab3/angry.py		Draw "angry smile"
