@@ -11,4 +11,5 @@ width, height = windowSize()
 center = width / 2, height / 2
 
 if __name__ == '__main__':
+	draw_cat(center[0], center[1], 130)
 	run()
