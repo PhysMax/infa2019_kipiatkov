@@ -37,6 +37,8 @@ def draw_head_of_cat(x, y, size):
 	brushColor(blk_clr)
 	penColor(blk_clr)
 	draw_oval(x + size*0.4 + size/12, y + size/10, size/30, size*0.25)
+	brushColor(wh_clr)
+	penColor(wh_clr)
 
 	penColor(grey_clr)
 
@@ -76,6 +78,9 @@ def draw_head_of_cat(x, y, size):
 def draw_cat(x, y, size):
 	penColor(grey_clr)
 	brushColor(op_clr)
+
+	# Tail
+	draw_rect(x + size, y, size, size/3, -math.pi/6)
 
 	# Body
 	draw_oval(x, y, size, size/2)
