@@ -59,7 +59,19 @@ def draw_head_of_cat(x, y, size):
 	# Nose
 	draw_polygon_by_angles(x, y + size/2,
 	[size/10, size/15, size/10], [math.pi/6, -math.pi/2, -math.pi*7/6])
-	line(x, y + size/2 + size/15, x, y+size*3/4)
+	line(x, y + size/2 + size/15, x, y+size*2/3)
+
+	# Mouth
+	draw_curve(x, y + size*2/3, size/10, math.pi/2, -math.pi/6)
+	draw_curve(x, y + size*2/3, size/10, -math.pi/2, -math.pi*5/6)
+
+	# Mustache
+	draw_curve(x + size/5, y + size*0.55, size*4, -math.pi/8, math.pi*0.125)
+	draw_curve(x + size/5, y + size*0.60, size*4, -math.pi/8, math.pi*0.1)
+	draw_curve(x + size/5, y + size*0.65, size*4, -math.pi/8, math.pi*0.075)
+	draw_curve(x - size/5, y + size*0.55, size*4, math.pi/8, math.pi*0.875)
+	draw_curve(x - size/5, y + size*0.60, size*4, math.pi/8, math.pi*0.9)
+	draw_curve(x - size/5, y + size*0.65, size*4, math.pi/8, math.pi*0.925)
 
 def draw_cat(x, y, size):
 	penColor(grey_clr)

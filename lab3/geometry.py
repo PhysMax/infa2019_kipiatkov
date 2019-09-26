@@ -39,3 +39,18 @@ def draw_polygon_by_angles(x, y, R:'[float]',
 	for n in range(len(angles)):
 		vertexes.append((x + math.cos(angles[n])*R[n], y - math.sin(angles[n])*R[n]))
 	return polygon(vertexes)
+
+def draw_curve(x, y, R, a, stinc, precision:'int' = 1000)->'int':
+	""" (x, y)- center, R - curvage radius, a - angle of sector,
+	precision - count of points on circle,
+	returns link to polyline """
+	points = []
+	count_of_points = int(abs(2*math.pi/a) * precision)
+	d_angle = a / count_of_points
+	d = abs(d_angle) * R
+	for i in range(count_of_points):
+		points.append((x, y))
+		angle = stinc + i * d_angle
+		x += d * math.cos(angle)
+		y -= d * math.sin(angle)
+	return polyline(points)
