@@ -28,14 +28,14 @@ def draw_oval(x, y, a, b)->'int':
 		width = penSize(),
 		fill = brushColor())
 
-def draw_polygon_by_angles(x, y, R,
+def draw_polygon_by_angles(x, y, R:'[float]',
 	angles:'[float]')->'int':
 	""" (x, y) - center,
-	R - radius of circumscribed circle,
+	R - list of radiuses, R[n] is distance between n-th vertex and center
 	angles - list of angles,
-	angles[n] is radian angle between vertical and n-th vertex from center,
+	angles[n] is radian angle between horizontal and n-th vertex from center,
 	returns link to polygon"""
 	vertexes = []
-	for a in angles:
-		vertexes.append((x + math.cos(a)*R, y + math.sin(a)*R))
+	for n in range(len(angles)):
+		vertexes.append((x + math.cos(angles[n])*R[n], y - math.sin(angles[n])*R[n]))
 	return polygon(vertexes)

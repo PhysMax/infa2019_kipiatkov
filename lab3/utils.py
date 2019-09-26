@@ -38,6 +38,29 @@ def draw_head_of_cat(x, y, size):
 	penColor(blk_clr)
 	draw_oval(x + size*0.4 + size/12, y + size/10, size/30, size*0.25)
 
+	penColor(grey_clr)
+
+	# Right ear
+	brushColor(op_clr)
+	draw_polygon_by_angles(x + size*0.7, y - size*0.7,
+	[size/2, size/3, size/3], [math.pi/3, -math.pi/3, -math.pi])
+	brushColor(pnk_clr)
+	draw_polygon_by_angles(x + size*0.7, y - size*0.7,
+	[size/3, size*2/9, size*2/9], [math.pi/3, -math.pi/3, -math.pi])
+
+	# Left ear
+	brushColor(op_clr)
+	draw_polygon_by_angles(x - size*0.7, y - size*0.7,
+	[size/2, size/3, size/3], [math.pi*2/3, -math.pi*2/3, 0])
+	brushColor(pnk_clr)
+	draw_polygon_by_angles(x - size*0.7, y - size*0.7,
+	[size/3, size*2/9, size*2/9], [math.pi*2/3, -math.pi*2/3, 0])
+
+	# Nose
+	draw_polygon_by_angles(x, y + size/2,
+	[size/10, size/15, size/10], [math.pi/6, -math.pi/2, -math.pi*7/6])
+	line(x, y + size/2 + size/15, x, y+size*3/4)
+
 def draw_cat(x, y, size):
 	penColor(grey_clr)
 	brushColor(op_clr)
