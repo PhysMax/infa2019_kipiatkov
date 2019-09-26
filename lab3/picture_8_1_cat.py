@@ -5,8 +5,10 @@
 from graph import *
 import math
 
+from utils import *
+
 width, height = windowSize()
-centre = width / 2, height / 2
+center = width / 2, height / 2
 
 if __name__ == '__main__':
 	run()

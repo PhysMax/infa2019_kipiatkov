@@ -6,7 +6,7 @@ from graph import *
 import math
 
 width, height = windowSize()
-centre = width / 2, height / 2
+center = width / 2, height / 2
 
 def draw_rect(startX:'float', startY:'float',
 		width:'float', height:'float',
@@ -25,10 +25,10 @@ if __name__ == '__main__':
 	# Draw face
 	brushColor('yellow')
 	R = width/4
-	circle(centre[0], centre[1], R)
+	circle(center[0], center[1], R)
 
 	# Draw left eyes
-	left_eye = centre[0] - R*0.4, centre[1] - R/4
+	left_eye = center[0] - R*0.4, center[1] - R/4
 	brushColor('red')
 	circle(left_eye[0], left_eye[1], R/5)
 	brushColor('black')
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 	draw_rect(left_eye[0] + R*0.4, left_eye[1], R, R/7, 5*math.pi/6)
 
 	# Draw right eye
-	right_eye = centre[0] + R*0.4, centre[1] - R/4
+	right_eye = center[0] + R*0.4, center[1] - R/4
 	brushColor('red')
 	circle(right_eye[0], right_eye[1], R/7)
 	brushColor('black')
@@ -44,6 +44,6 @@ if __name__ == '__main__':
 	draw_rect(right_eye[0] - R*2/7, right_eye[1], R*2/3, -R/10, math.pi/7)
 
 	# Draw mouth
-	draw_rect(centre[0] - R/2, centre[1] + R/3, R, R/5)
+	draw_rect(center[0] - R/2, center[1] + R/3, R, R/5)
 
 	run()
