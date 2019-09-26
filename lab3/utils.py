@@ -2,8 +2,10 @@
 
 # Utils for tasks 1, 2
 
-from graph import *
 import math
+from graph import *
+
+from geometry import *
 
 # Colors in RGB
 op_clr = 255, 155, 90 # Pink with a little orange
@@ -15,16 +17,6 @@ gr_clr = 140, 200, 0 # Green with a little yellow
 bl_clr = 150, 250, 250 # Light-blue
 wh_clr = 255, 255, 255 # White
 blk_clr = 0, 0, 0 # Black
-
-C = canvas()
-
-def draw_oval(x, y, a, b)->'int':
-	""" (x, y) - center, a - major seim axis, b - minor seim axis """
-	# Using tkinter directly
-	return C.create_oval(x - a, y - b, x + a, y + b,
-		outline = penColor(),
-		width = penSize(),
-		fill = brushColor())
 
 def draw_head_of_cat(x, y, size):
 	penColor(grey_clr)
