@@ -9,12 +9,12 @@ from geometry import *
 
 # Colors in RGB
 op_clr = 255, 155, 90 # Pink with a little orange
-grey_clr = 70, 70, 70 # Light-grey
+grey_clr = 100, 100, 100 # Light-grey
 mg_clr = 100, 85, 0 # Marshy green
-mryel_clr = 180, 150, 0 # Marshy yellow
+mryel_clr = 150, 120, 0 # Marshy yellow
 pnk_clr = 250, 200, 200 # Pink
 gr_clr = 140, 200, 0 # Green with a little yellow
-bl_clr = 150, 250, 250 # Light-blue
+bl_clr = 100, 200, 200 # Light-blue
 wh_clr = 255, 255, 255 # White
 blk_clr = 0, 0, 0 # Black
 
@@ -97,3 +97,22 @@ def draw_cat(x, y, size):
 
 	# Head
 	draw_head_of_cat(x - size*0.9, y - size/7, size*0.4)
+
+def draw_window(x, y, width, height, indentX = None, indentY = None):
+	""" (x, y) - center , (width, height) - size,
+	indentX - horizontal indent between "glasses"
+	indentY - vertical indent between "glasses" """
+	if indentX == None:
+		indentX = width*0.05
+	if indentY == None:
+		indentY = height*0.05
+
+	brushColor(wh_clr)
+	penColor(wh_clr)
+	rectangle(x - width/2, y - height/2, x + width/2, y + height/2)
+
+	brushColor(bl_clr)
+	rectangle(x - width/2 + indentX, y - height/2 + indentY, x - indentX/2, y - indentY/2 - height/6)
+	rectangle(x + indentX/2, y - height/2 + indentY, x + width/2 - indentX, y - indentY/2 - height/6)
+	rectangle(x - width/2 + indentX, y + indentY/2 - height/6, x - indentX/2, y + height/2 - indentY)
+	rectangle(x + indentX/2, y + indentY/2 - height/6, x + width/2 - indentX, y + height/2 - indentY)
