@@ -75,28 +75,37 @@ def draw_head_of_cat(x, y, size):
 	draw_curve(x - size/5, y + size*0.60, size*4, math.pi/8, math.pi*0.9)
 	draw_curve(x - size/5, y + size*0.65, size*4, math.pi/8, math.pi*0.925)
 
-def draw_cat(x, y, size):
+def draw_cat(x, y, sizeX, sizeY):
+	""" sizeX - some horizontal scale of the cat, sizeY some vertical scale,
+	to mirror cat you should take sizeX < 0,
+	to draw "standart" cat use same values of sizeX and sizeY """
 	penColor(grey_clr)
 	brushColor(op_clr)
 
 	# Tail
-	draw_rect(x + size, y, size, size/3, -math.pi/6)
+	if sizeX*sizeY < 0: # Cat is mirrored
+		angle = -math.pi*5/6
+	else:
+		angle = -math.pi/6
+	a = sizeX/math.cos(angle)
+	b = sizeY/(3*math.cos(angle))
+	draw_rect(x + sizeX, y, a, b, angle)
 
 	# Body
-	draw_oval(x, y, size, size/2)
+	draw_oval(x, y, sizeX, sizeY/2)
 
 	# Fore left paw
-	draw_oval(x - size*2/3, y + size*5/12, size/4, size/8)
+	draw_oval(x - sizeX*2/3, y + sizeY*5/12, sizeX/4, sizeY/8)
 
 	# Fore right paw
-	draw_oval(x - size, y, size/7, size/3)
+	draw_oval(x - sizeX, y, sizeX/7, sizeY/3)
 
 	# Back left paw
-	draw_oval(x + size*2/3, y + size/4, size/3, size/3)
-	draw_oval(x + size*0.97, y + size*2/3*0.9, size/10, size/4)
+	draw_oval(x + sizeX*2/3, y + sizeY/4, sizeX/3, sizeY/3)
+	draw_oval(x + sizeX*0.97, y + sizeY*2/3*0.9, sizeX/10, sizeY/4)
 
 	# Head
-	draw_head_of_cat(x - size*0.9, y - size/7, size*0.4)
+	draw_head_of_cat(x - sizeX*0.9, y - sizeY/7, sizeY*0.4)
 
 def draw_window(x, y, width, height, indentX = None, indentY = None):
 	""" (x, y) - center , (width, height) - size,
