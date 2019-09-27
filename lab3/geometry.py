@@ -54,3 +54,17 @@ def draw_curve(x, y, R, a, stinc, precision:'int' = 1000)->'int':
 		x += d * math.cos(angle)
 		y -= d * math.sin(angle)
 	return polyline(points)
+
+def draw_thread(x, y, size, angle, precision = 100, periods:'float' = 2.3):
+	points = []
+	count_of_points = int(size * precision)
+	d = size / count_of_points
+	X = 0
+	Y = 0
+	s = math.sin(angle)
+	c = math.cos(angle)
+	for i in range(count_of_points):
+		Y = math.sin(X/size * math.pi * 2 * periods) * size / 20
+		points.append((x + X*c - Y*s, y - X*s - Y*c))
+		X += d
+	return polyline(points)

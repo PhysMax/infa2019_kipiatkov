@@ -19,4 +19,5 @@ if __name__ == '__main__':
 
 	draw_cat(center[0], center[1] + height/8, 170, 170)
 	draw_window(center[0] + width*0.28, height*0.23, width*0.4, height*0.4)
+	draw_clew(center[0] + width/10, center[1] + height*0.4, width/10)
 	run()

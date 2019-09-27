@@ -17,6 +17,7 @@ gr_clr = 140, 200, 0 # Green with a little yellow
 bl_clr = 100, 200, 200 # Light-blue
 wh_clr = 255, 255, 255 # White
 blk_clr = 0, 0, 0 # Black
+lgr_clr = 180, 180, 180 # Light-light-grey
 
 def draw_head_of_cat(x, y, size):
 	penColor(grey_clr)
@@ -125,3 +126,21 @@ def draw_window(x, y, width, height, indentX = None, indentY = None):
 	rectangle(x + indentX/2, y - height/2 + indentY, x + width/2 - indentX, y - indentY/2 - height/6)
 	rectangle(x - width/2 + indentX, y + indentY/2 - height/6, x - indentX/2, y + height/2 - indentY)
 	rectangle(x + indentX/2, y + indentY/2 - height/6, x + width/2 - indentX, y + height/2 - indentY)
+
+def draw_clew(x, y, size):
+	brushColor(lgr_clr)
+	penColor(grey_clr)
+	draw_oval(x, y, size, size)
+
+	# Thread
+	penColor(lgr_clr)
+	draw_thread(x - size/2, y + size/2, size*3, -math.pi*23/24)
+
+	# Lines on clew
+	penColor(grey_clr)
+	draw_curve(x, y - size*2/3, size, -math.pi*0.4, 0)
+	draw_curve(x, y - size*0.55, size, -math.pi*0.4, -math.pi/12)
+	draw_curve(x, y - size*0.45, size, -math.pi*0.4, -math.pi/6)
+	draw_curve(x, y, size, math.pi*0.3, -math.pi*0.75)
+	draw_curve(x - size/10, y - size/10, size, math.pi*0.3, -math.pi*0.85)
+	draw_curve(x + size/10, y + size/10, size, math.pi*0.25, -math.pi*0.65)
